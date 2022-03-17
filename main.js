@@ -138,6 +138,10 @@ function Map() {
     };
 }
 
+/**
+ * 
+ * @param {string} filename (initial filename)
+ */
 function BeatmapContext(filename) {
     var map = new Map();
     var events = new Event();
@@ -190,10 +194,15 @@ function BeatmapContext(filename) {
 /** +++++++++++++++++++++++++++++++++++++++++++ */
 
 var ctx = new BeatmapContext("NormalLawless.dat");
-
 /*************************************************/
 
+// start here ...
+/**
 
+example: 
+ctx.EV(0, EVENT_TYPE.BIG_RINGS, LIGHT_TYPE.ON, ctx.RGB(1, 1, 1));
+
+**/
 
 /*************************************************/
 ctx.save();
