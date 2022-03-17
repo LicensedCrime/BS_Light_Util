@@ -115,8 +115,12 @@ function Map() {
     this.load = function(filename) {
         file = filename;
 
-        let json_file = fs.readFileSync(file);
-        data = JSON.parse(json_file);
+        try {
+            let json_file = fs.readFileSync(file);
+            data = JSON.parse(json_file);
+        } catch(e) {
+            console.log("... file could not be read ...", e);
+        }
     };
 
     this.getData = function() { return data; };
