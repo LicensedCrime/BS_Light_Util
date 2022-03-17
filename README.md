@@ -3,7 +3,9 @@ Lighting in JS style. Just a template for editing without the annoying clicky st
 
 # Usage
 1. copy the main.js file into your WIP maps folder
-2. start scripting...
+2. start scripting... ctx is your friend
+3. to run the script, install nodejs before
+4. final step > open the console and type "node main"
 
 # Methods
 + EV            -> creates an event
