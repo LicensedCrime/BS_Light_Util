@@ -8,8 +8,8 @@ var LIGHT_TYPE = {
 };
 
 var EVENT_TYPE = {
-    ROTATION_INCLUDE: 14,  // 0 bis 7 => -60° bis 60°
-    ROTATION_EXCLUDE: 15,  // 0 bis 7 => -60° bis 60°
+    ROTATION_INCLUDE: 14,  // 0 to 7 => -60° to 60°
+    ROTATION_EXCLUDE: 15,  // 0 to 7 => -60° to 60°
     BACK_LASERS: 0,        // light_value
     BIG_RINGS: 1,          // light_value
     LEFT_ROT_LIGHTS: 2,    // light_value
@@ -34,7 +34,14 @@ var ROTATION = {
 };
 
 function Color() {
-
+    /**
+     * 
+     * @param {float} r 
+     * @param {float} g 
+     * @param {float} b 
+     * @param {float} a (optional)
+     * @returns 
+     */
     this.create = function(r, g, b, a) {
         return {
             r: r,
@@ -47,6 +54,8 @@ function Color() {
 
 var COLOR = new Color();
 
+// todo...?
+// <<<<
 function EventData() {
     this.create = function(time, type, value, color) {
         return {
@@ -56,6 +65,7 @@ function EventData() {
 }
 
 var EVENTDATA = new EventData();
+// <<<<
 
 function Event() {
     var events = [];
@@ -65,16 +75,9 @@ function Event() {
     /**
      * 
      * @param {float} time 
-     * @param {int} light_type 
-     * @param {Color} color 
-     */
-
-    /**
-     * 
-     * @param {float} time 
      * @param {EVENT_TYPE} type 
      * @param {LIGHT_TYPE} light_type 
-     * @param {Color} color 
+     * @param {Color} color (optional)
      */
     this.create = function(time, type, light_type, color) {
         var row = {
@@ -105,6 +108,10 @@ function Map() {
     var file = "";
     var data = null;
 
+    /**
+     * 
+     * @param {string} filename 
+     */
     this.load = function(filename) {
         file = filename;
 
@@ -121,7 +128,7 @@ function Map() {
     this.save = function(events) {
         console.log(data._events);
         data._events = events.collect();
-        return;
+        return; // debug
 
         try {
             fs.writeFileSync(file, JSON.stringify(data));
@@ -175,8 +182,6 @@ function BeatmapContext(filename) {
     this.ROT_EX = function(time, _) {};
 
     this.LASER_BACK = function(time, _) {};
-    this.LASER_LEFT = function(time, _) {};
-    this.LASER_RIGHT = function(time, _) {};
 
     /************************************/
     this.load();
