@@ -19,7 +19,7 @@ var EVENT_TYPE = {
     RING_ZOOM: 9,          // default 7
     LEFT_LASER_SPEED: 12,  // int
     RIGHT_LASER_SPEED: 13, // int
-    BOOST_LIGHTS: 5,       // 0 > color, 1 > element color <<< alternates between states
+    BOOST_LIGHTS: 5,       // 0, 1
 };
 
 var ROTATION = {
